@@ -22,7 +22,8 @@ jobs:
       run: |
         git clone https://github.com/balabit/syslog-ng
         cd syslog-ng
-        ls
+        dbld/rules tarball
+        
         
         
         #wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
