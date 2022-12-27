@@ -23,8 +23,8 @@ jobs:
         wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
         tar -xzf syslog-ng-3.26.1.tar.gz -C .
         cd syslog-ng-3.26.1
-        dbld/rules tarball
-        #dbld/rules ubuntu-focal
+        #dbld/rules tarball
+        dbld/rules ubuntu-focal
         #dbld/rules deb-focal
       
       
