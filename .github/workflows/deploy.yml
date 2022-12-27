@@ -17,4 +17,7 @@ jobs:
     steps:
     - name: apt-get update
       run: |
+        wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | sudo apt-key add -
+        echo "deb https://ose-repo.syslog-ng.com/apt/ stable ubuntu-focal" | sudo tee -a /etc/apt/sources.list.d/syslog-ng-ose.list
         sudo apt-get update
+        sudo apt-get install syslog-ng-core syslog-ng-scl
