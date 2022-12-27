@@ -17,4 +17,4 @@ jobs:
     steps:
     - name: apt-get update
       run: |
-        apt-get update
+        apt-get install syslog-ng-core syslog-ng-scl
