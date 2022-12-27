@@ -24,7 +24,8 @@ jobs:
         sudo apt-get install alien
         cd /tmp
         wget https://download.copr.fedorainfracloud.org/results/czanik/syslog-ng326epel6/epel-6-x86_64/01324992-syslog-ng/syslog-ng-3.26.1-2.el6.x86_64.rpm
-        sudo alien –i syslog-ng-3.26.1-2.el6.x86_64.rpm
+        sudo alien syslog-ng-3.26.1-2.el6.x86_64.rpm
+        apt install /tmp/syslog-ng_3.26.1-3_amd64.deb
         
         
         
