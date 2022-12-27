@@ -20,12 +20,14 @@ jobs:
    
     - name: Install syslog-ng
       run: |
-        sudo apt-get update
-        sudo apt-get install alien
+        #sudo apt-get update
+        #sudo apt-get install alien
         cd /tmp
-        wget https://download.copr.fedorainfracloud.org/results/czanik/syslog-ng326epel6/epel-6-x86_64/01324992-syslog-ng/syslog-ng-3.26.1-2.el6.x86_64.rpm
-        sudo alien syslog-ng-3.26.1-2.el6.x86_64.rpm
-        sudo apt install /tmp/syslog-ng_3.26.1-3_amd64.deb
+        wget https://snapshot.debian.org/archive/debian/20200304T033001Z/pool/main/s/syslog-ng/syslog-ng_3.25.1-3_all.deb
+        sudo apt install /tmp/syslog-ng_3.25.1-3_all.deb
+        #wget https://download.copr.fedorainfracloud.org/results/czanik/syslog-ng326epel6/epel-6-x86_64/01324992-syslog-ng/syslog-ng-3.26.1-2.el6.x86_64.rpm
+        #sudo alien syslog-ng-3.26.1-2.el6.x86_64.rpm
+        #sudo apt install /tmp/syslog-ng_3.26.1-2_amd64.deb
         
         
         
