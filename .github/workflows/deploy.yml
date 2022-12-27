@@ -19,6 +19,7 @@ jobs:
       run: |
         wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | sudo apt-key add -
         sudo apt-get update
-        sudo apt-get install syslog-ng
+        sudo apt-get install syslog-ng=3.26.1-2
         sudo syslog-ng --version
         echo "test"
+        ps -A | grep syslog
