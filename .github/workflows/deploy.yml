@@ -21,7 +21,7 @@ jobs:
     - name: Install syslog-ng
       run: |
         sudo apt-get install syslog-ng
-        cp syslog/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
+        sudo cp syslog/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
         ps -A | grep syslog
         pwd
         ls
