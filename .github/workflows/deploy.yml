@@ -9,6 +9,7 @@ on:
 jobs:
   testing:
     runs-on: ubuntu-latest
+    container: 'centos:latest'
     environment: production
     permissions:
       id-token: write
@@ -26,15 +27,16 @@ jobs:
         #cd syslog-ng-3.26.1
         #./configure && make && sudo make install
         
-        git clone https://github.com/syslog-ng/syslog-ng -b syslog-ng-3.26.1
-        cd syslog-ng
-        dbld/rules tarball
-        dbld/rules image-ubuntu-focal
-        dbld/rules deb-ubuntu-focal
-        cd dbld/build/ubuntu-focal
-        get add .
-        git commit -m "testing"
-        git push
+        #git clone https://github.com/syslog-ng/syslog-ng -b syslog-ng-3.26.1
+        #cd syslog-ng
+        #dbld/rules tarball
+        #dbld/rules image-ubuntu-focal
+        #dbld/rules deb-ubuntu-focal
+        #cd dbld/build/ubuntu-focal
+        #get add .
+        #git commit -m "testing"
+        #git push
+        yum install syslog-ng
         
         
         
