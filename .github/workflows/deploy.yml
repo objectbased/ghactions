@@ -20,4 +20,5 @@ jobs:
         wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install syslog-ng
-        syslog-ng --version
+        sudo syslog-ng --version
+        echo "test"
