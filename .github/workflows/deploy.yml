@@ -9,7 +9,6 @@ on:
 jobs:
   testing:
     runs-on: ubuntu-latest
-    container: 'centos:latest'
     environment: production
     permissions:
       id-token: write
@@ -21,7 +20,15 @@ jobs:
    
     - name: Install syslog-ng
       run: |
-        #cd /tmp
+        sudo apt-get update
+        sudo apt-get install alien
+        cd /tmp
+        wget https://download.copr.fedorainfracloud.org/results/czanik/syslog-ng326epel6/epel-6-x86_64/01324992-syslog-ng/syslog-ng-3.26.1-2.el6.x86_64.rpm
+        sudo alien –i syslog-ng-3.26.1-2.el6.x86_64.rpm
+        
+        
+        
+        
         #wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
         #tar -xzf syslog-ng-3.26.1.tar.gz -C .
         #cd syslog-ng-3.26.1
@@ -36,7 +43,7 @@ jobs:
         #get add .
         #git commit -m "testing"
         #git push
-        yum update
+        #yum update
         
         
         
