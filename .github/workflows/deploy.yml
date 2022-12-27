@@ -26,3 +26,5 @@ jobs:
         ps -A | grep syslog
         pwd
         ls
+        cd /etc/syslog-ng
+        ls
