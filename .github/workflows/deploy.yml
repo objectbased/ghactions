@@ -21,7 +21,8 @@ jobs:
     
     - name: apt-get update
       run: |
-        cd /syslog
+        cd syslog/
+        ls
         wget -qO - https://ose-repo.syslog-ng.com/apt/syslog-ng-ose-pub.asc | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install syslog-ng
