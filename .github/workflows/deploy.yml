@@ -18,13 +18,13 @@ jobs:
     - name: Git clone repository
       uses: actions/checkout@v3
    
-    - name: apt-get update
+    - name: Install syslog-ng
       run: |
-        cd syslog/
-        ls
         sudo apt-get install syslog-ng
+        cp syslog/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
         ps -A | grep syslog
         pwd
         ls
         cd /etc/syslog-ng
         ls
+        syslog-ng -s
