@@ -20,13 +20,18 @@ jobs:
    
     - name: Install syslog-ng
       run: |
-        git clone https://github.com/balabit/syslog-ng
-        cd syslog-ng
-        dbld/rules tarball
-        dbld/rules image-ubuntu-focal
-        dbld/rules deb-ubuntu-focal
-        cd dbld/build
-        ls
+        cd /tmp
+        wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
+        cd syslog-ng-3.26.1
+        ./configure && make && sudo make install
+        
+        #git clone https://github.com/balabit/syslog-ng -b syslog-ng-3.26.1
+        #cd syslog-ng
+        #dbld/rules tarball
+        #dbld/rules image-ubuntu-focal
+        #dbld/rules deb-ubuntu-focal
+        #cd dbld/build
+        #ls
         
         
         #wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
