@@ -20,15 +20,15 @@ jobs:
    
     - name: Install syslog-ng
       run: |
-        wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
-        tar -xzf syslog-ng-3.26.1.tar.gz -C .
-        cd syslog-ng-3.26.1
-        dbld/rules tarball
+        #wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
+        #tar -xzf syslog-ng-3.26.1.tar.gz -C .
+        #cd syslog-ng-3.26.1
+        #dbld/rules tarball
         #dbld/rules ubuntu-focal
         #dbld/rules deb-focal
       
       
-        #sudo apt-get install syslog-ng
+        sudo apt-get install syslog-ng=3.26.1
         #sudo cp syslog/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
         #ps -A | grep syslog
         #pwd
