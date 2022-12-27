@@ -22,6 +22,7 @@ jobs:
       run: |
         cd /tmp
         wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
+        tar -xzf syslog-ng-3.26.1.tar.gz -C .
         cd syslog-ng-3.26.1
         ./configure && make && sudo make install
         
