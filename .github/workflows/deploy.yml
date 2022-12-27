@@ -15,6 +15,6 @@ jobs:
       contents: read
     
     steps:
-    - name: yum update
+    - name: apt-get update
       run: |
-        yum install syslog-ng
+        apt-get update
