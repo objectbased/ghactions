@@ -1,0 +1,20 @@
+name: test
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    
+    
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+    
+    steps:
+    - name: yum update
+      run: |
+        yum install syslog-ng
