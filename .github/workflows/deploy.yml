@@ -29,9 +29,8 @@ jobs:
         syslog-ng --version
         echo " "
         sudo syslog-ng -s
-        cd /etc/syslog-ng
-        ls
-        pwd
+        cd syslog
+        sudo cp syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
       
         #sudo echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./" >> /etc/apt/sources.list.d/syslog-ng-obs.list
         #sudo apt-get update
