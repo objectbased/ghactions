@@ -23,7 +23,7 @@ jobs:
         cd /tmp
         wget https://snapshot.debian.org/archive/debian/20200304T033001Z/pool/main/s/syslog-ng/syslog-ng_3.25.1-3_all.deb
         #sudo dpkg -i /tmp/syslog-ng_3.25.1-3_all.deb
-        sudo apt install /tmp/syslog-ng_3.25.1-3_all.deb
+        sudo apt-get install -f /tmp/syslog-ng_3.25.1-3_all.deb
         echo " "
         syslog-ng --version
       
