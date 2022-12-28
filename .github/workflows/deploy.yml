@@ -40,8 +40,8 @@ jobs:
         cd build
         wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
         cd ../..
-        dbld/rules image-ubuntu-focal
-        dbld/rules deb-ubuntu-focal
+        dbld/rules image-debian-buster
+        dbld/rules deb-debian-buster
         
         #git clone https://github.com/syslog-ng/syslog-ng -b syslog-ng-3.26.1
         #cd syslog-ng
