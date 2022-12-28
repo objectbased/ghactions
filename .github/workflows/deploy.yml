@@ -39,7 +39,7 @@ jobs:
         mkdir build
         cd build
         wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
-        cd ..
+        cd ../..
         dbld/rules image-ubuntu-focal
         dbld/rules deb-ubuntu-focal
         
