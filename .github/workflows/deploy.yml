@@ -9,6 +9,7 @@ on:
 jobs:
   testing:
     runs-on: ubuntu-latest
+    container: centos:latest
     environment: production
     permissions:
       id-token: write
