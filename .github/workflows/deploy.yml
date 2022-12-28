@@ -23,7 +23,7 @@ jobs:
         cd /tmp
         wget https://snapshot.debian.org/archive/debian/20200304T033001Z/pool/main/s/syslog-ng/syslog-ng_3.25.1-3_all.deb
         sudo apt install /tmp/syslog-ng_3.25.1-3_all.deb
-        syslog --version
+        syslog-ng --version
       
         #sudo echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./" >> /etc/apt/sources.list.d/syslog-ng-obs.list
         #sudo apt-get update
