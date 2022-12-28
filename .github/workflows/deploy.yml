@@ -20,6 +20,7 @@ jobs:
    
     - name: Install syslog-ng
       run: |
+        ls
         sudo apt remove syslog-ng
         cd /tmp
         wget http://ftp.us.debian.org/debian/pool/main/s/syslog-ng/syslog-ng-core_3.28.1-2+b1_amd64.deb
@@ -29,7 +30,7 @@ jobs:
         syslog-ng --version
         echo " "
         sudo syslog-ng -s
-        cd syslog
+        #cd syslog
         ls
         pwd
         sudo cp syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
