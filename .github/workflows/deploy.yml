@@ -29,10 +29,12 @@ jobs:
         #sudo apt install /tmp/syslog-ng_3.26.1-2_amd64.deb
         
         
-        
+        #docker pull balabit/syslog-ng:3.26.1
+        sudo apt install dpkg-dev
+        sudo apt install devscripts
         cd /tmp
         git clone https://github.com/syslog-ng/syslog-ng -b syslog-ng-3.26.1
-        #wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
+        #wget https://github.com/syslog-ng/syslog-ng/archive/refs/tags/syslog-ng-3.25.1.tar.gz
         #tar -xzf syslog-ng-3.26.1.tar.gz -C .
         cd syslog-ng
         cd dbld
