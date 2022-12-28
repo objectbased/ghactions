@@ -20,7 +20,7 @@ jobs:
    
     - name: Install syslog-ng
       run: |
-        echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./" >> /etc/apt/sources.list.d/syslog-ng-obs.list
+        sudo echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./" >> /etc/apt/sources.list.d/syslog-ng-obs.list
         sudo apt-get update
         sudo apt install syslog-ng
         sudo syslog-ng --version
