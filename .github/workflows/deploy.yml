@@ -22,7 +22,6 @@ jobs:
       run: |
         #sudo apt-get update
         #sudo apt-get install alien
-        cd /tmp
         #wget https://snapshot.debian.org/archive/debian/20200304T033001Z/pool/main/s/syslog-ng/syslog-ng_3.25.1-3_all.deb
         #sudo apt install /tmp/syslog-ng_3.25.1-3_all.deb
         #wget https://download.copr.fedorainfracloud.org/results/czanik/syslog-ng326epel6/epel-6-x86_64/01324992-syslog-ng/syslog-ng-3.26.1-2.el6.x86_64.rpm
@@ -31,11 +30,11 @@ jobs:
         
         
         
-        
+        cd /tmp
         wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
         tar -xzf syslog-ng-3.26.1.tar.gz -C .
         cd syslog-ng-3.26.1
-        dbld/rules image-ubuntu-jessie
+        dbld/rules image-ubuntu-bionic
         
         #git clone https://github.com/syslog-ng/syslog-ng -b syslog-ng-3.26.1
         #cd syslog-ng
