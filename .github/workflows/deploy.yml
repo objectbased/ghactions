@@ -42,8 +42,8 @@ jobs:
         cd build
         wget https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-3.26.1/syslog-ng-3.26.1.tar.gz
         cd ../..
-        dbld/rules image-debian-buster
-        dbld/rules deb-debian-buster
+        dbld/rules image-ubuntu-bionic
+        dbld/rules deb-ubuntu-bionic
         
         #git clone https://github.com/syslog-ng/syslog-ng -b syslog-ng-3.26.1
         #cd syslog-ng
