@@ -20,7 +20,8 @@ jobs:
    
     - name: Install syslog-ng
       run: |
-        apt install syslog-ng
+        sudo apt install syslog-ng
+        sudo syslog-ng --version
         #yum install wget
         #wget https://download.copr.fedorainfracloud.org/results/czanik/syslog-ng326epel6/epel-6-x86_64/01324992-syslog-ng/syslog-ng-3.26.1-2.el6.x86_64.rpm
         #rpm -Uvh syslog-ng-3.26.1-2.el6.x86_64.rpm
