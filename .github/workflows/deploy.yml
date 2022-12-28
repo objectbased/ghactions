@@ -36,6 +36,7 @@ jobs:
         #tar -xzf syslog-ng-3.26.1.tar.gz -C .
         cd syslog-ng
         dbld/rules image-ubuntu-focal
+        dbld/rules deb-ubuntu-focal
         
         #git clone https://github.com/syslog-ng/syslog-ng -b syslog-ng-3.26.1
         #cd syslog-ng
