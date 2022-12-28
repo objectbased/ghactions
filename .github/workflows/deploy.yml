@@ -26,7 +26,7 @@ jobs:
         sudo syslog-ng --version
         echo " "
         sudo cp syslog/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
-        #sudo cat /etc/syslog-ng/syslog-ng.conf
+        sudo cat /etc/syslog-ng/syslog-ng.conf
         #sudo cp syslog/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
         sudo syslog-ng -s
       
