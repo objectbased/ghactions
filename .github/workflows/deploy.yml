@@ -6,7 +6,7 @@ on:
     paths: ['syslog/**']
     
 jobs:
-  testing:
+  syslog-ng-syntax-check:
     runs-on: ubuntu-latest
     environment: production
     permissions:
