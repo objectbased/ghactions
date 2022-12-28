@@ -26,9 +26,7 @@ jobs:
         sudo syslog-ng --version
         echo " "
         sudo cp /etc/syslog-ng/syslog-ng.conf syslog/syslog-ng.conf
-        cd syslog
-        git add .
-        git push
+        sudo cat /etc/syslog-ng/syslog-ng.conf
         #sudo cp syslog/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
         #sudo syslog-ng -s
       
