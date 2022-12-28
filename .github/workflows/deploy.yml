@@ -22,8 +22,9 @@ jobs:
       run: |
         sudo apt remove syslog-ng
         cd /tmp
-        wget https://snapshot.debian.org/archive/debian/20200304T033001Z/pool/main/s/syslog-ng/syslog-ng_3.25.1-3_all.deb
-        sudo apt install /tmp/syslog-ng_3.25.1-3_all.deb
+        wget http://ftp.us.debian.org/debian/pool/main/s/syslog-ng/syslog-ng-core_3.28.1-2+b1_amd64.deb
+        ls
+        sudo apt install /tmp/syslog-ng-core_3.28.1-2+b1_amd64.deb
         echo " "
         syslog-ng --version
         syslog-ng -s
