@@ -24,7 +24,7 @@ jobs:
         pwd
         wget http://ftp.us.debian.org/debian/pool/main/s/syslog-ng/syslog-ng-core_3.28.1-2+b1_amd64.deb
         ls
-        sudo apt install syslog-ng-core_3.28.1-2+b1_amd64.deb
+        sudo apt install ./syslog-ng-core_3.28.1-2+b1_amd64.deb
         echo " "
         syslog-ng --version
         echo " "
