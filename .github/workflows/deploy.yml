@@ -8,8 +8,7 @@ on:
     
 jobs:
   testing:
-    runs-on: ubuntu-latest
-    container: centos:latest
+    runs-on: ubuntu-18.04
     environment: production
     permissions:
       id-token: write
