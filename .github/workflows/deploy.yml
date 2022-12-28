@@ -27,6 +27,7 @@ jobs:
         sudo apt install /tmp/syslog-ng-core_3.28.1-2+b1_amd64.deb
         echo " "
         syslog-ng --version
+        echo " "
         syslog-ng -s
       
         #sudo echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_9.0 ./" >> /etc/apt/sources.list.d/syslog-ng-obs.list
