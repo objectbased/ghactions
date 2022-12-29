@@ -21,11 +21,12 @@ jobs:
       run: |
         wget http://ftp.us.debian.org/debian/pool/main/s/syslog-ng/syslog-ng-core_3.28.1-2+b1_amd64.deb
         sudo apt install ./syslog-ng-core_3.28.1-2+b1_amd64.deb
-        service start syslog-ng
+        service syslog-ng start 
         
     - name: Copy syslog-ng.conf from repo to runner
       run: |
         sudo cp -R syslog-ng /etc/syslog-ng
+        cat /etc/syslog-ng/syslog-ng.conf
         
     #- name: Create single syslog-ng.conf file from all configs
     #  run: sudo syslog-ng-ctl config -p > /tmp/syslog-ng.conf
