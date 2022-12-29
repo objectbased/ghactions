@@ -25,7 +25,7 @@ jobs:
         
     - name: Copy syslog-ng.conf from repo to runner
       run: |
-        sudo cp -R syslog-ng /etc/syslog-ng
+        sudo cp -R syslog-ng /etc
         cat /etc/syslog-ng/syslog-ng.conf
         
     #- name: Create single syslog-ng.conf file from all configs
