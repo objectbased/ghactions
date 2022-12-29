@@ -33,4 +33,4 @@ jobs:
     
     - name: Check syntax against configs
       run: |
-        sudo syslog-ng -s
+        sudo syslog-ng -s -f /etc/syslog-ng/syslog-ng.conf
