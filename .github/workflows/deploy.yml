@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: ['main']
-    paths: ['syslog-ng/**']
+    #paths: ['syslog-ng/**']
     
 jobs:
   syslog-ng-syntax-check:
@@ -33,3 +33,4 @@ jobs:
       run: |
         cat /tmp/syslog-ng.conf
         sudo syslog-ng -s -f /tmp/syslog-ng.conf
+        echo "test"
