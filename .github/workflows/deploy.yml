@@ -1,4 +1,4 @@
-name: test
+name: Syslog-ng Syntax Check
 on:
   workflow_dispatch:
   pull_request:
