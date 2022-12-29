@@ -34,4 +34,4 @@ jobs:
     
     - name: Check syntax against configs
       run: |
-        sudo syslog-ng -s -f /etc/syslog-ng/conf.d/global/options.conf
+        sudo syslog-ng -s
