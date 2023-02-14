@@ -9,10 +9,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Send output to Splunk
-      uses: splunk/splunk-github-actions/splunk-logging@v0.2.0
-      with:
-        hec-token: ${{ secrets.SPLUNK_HEC_TOKEN }}
-        hec-url: ${{ secrets.SPLUNK_HEC_ENDPOINT }}
-        sourcetype: my-sourcetype
-        index: my-index
-        message: ${{ toJson(steps) }}
+      run: |
+        curl -k ${{ secrets.SPLUNK_HEC_ENDPOINT }} \
+        -H 'Authorization: Splunk ${{ secrets.SPLUNK_HEC_TOKEN }}' \
+        -d '{"event":'"$(echo "${{ toJson(steps) }}" | tr -d '\n')"', "sourcetype":"my-sourcetype", "index":"my-index"}'
