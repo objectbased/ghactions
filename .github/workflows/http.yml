@@ -8,10 +8,15 @@ on:
 jobs:
   send-output:
     runs-on: ubuntu-latest
+    environment: test
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      
+    - name: echo
+      run: |
+        echo "${{ toJson(steps) }}"
       
     - name: Send output to Splunk
       run: |
