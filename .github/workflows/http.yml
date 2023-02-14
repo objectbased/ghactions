@@ -1,13 +1,18 @@
 name: Send workflow output to Splunk HEC
 
-on: [push]
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
 
 jobs:
   send-output:
     runs-on: ubuntu-latest
+    
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      
     - name: Send output to Splunk
       run: |
         curl -k ${{ secrets.SPLUNK_HEC_ENDPOINT }} \
