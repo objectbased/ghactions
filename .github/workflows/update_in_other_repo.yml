@@ -1,0 +1,53 @@
+name: Update Other Repository
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-code-in-other-repo:
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+      
+    steps:
+      - name: Git Clone repository
+        uses: actions/checkout@v3
+      
+      - name: Set up python/git
+        uses: actions/setup-python@v4
+        
+      - name: Clone other repository
+        run: git clone https://github.com/objectbased/aws-testing.git
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          
+      - name: Copy file to other repository
+        run: cp ghactions/syslog-ng/scl.conf aws-testing/
+          
+      - name: Commit changes
+        run: |
+          cd aws-testing
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          feature_branch_name=$(date +"%Y-%m-%d")-update-directory
+          git checkout -b $feature_branch_name
+          git add .
+          git commit -m "Update directory with file from original repository"
+          git push --set-upstream origin $feature_branch_name
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Update directory with file from original repository
+          body: This pull request updates the directory in the other repository with a file from the original repository.
+          branch: ${{ steps.commit.outputs.branch }}
+          base: main
+          token: ${{ secrets.ACCESS_TOKEN }}
+          labels: 'automerge'
+          draft: false
