@@ -45,6 +45,9 @@ jobs:
           git commit -m "Update directory with file from original repository"
           git push --set-upstream origin $feature_branch_name
           
+      - name: Print feature branch name
+        run: echo $feature_branch_name
+          
       - name: Open pull request
         env:
            FEATURE_BRANCH_NAME: ${{ env.feature_branch_name }}
