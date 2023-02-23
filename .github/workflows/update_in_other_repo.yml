@@ -35,16 +35,20 @@ jobs:
           cp syslog-ng/scl.conf aws-testing/
           ls -la aws-testing/
           
+      - name: Set branch name
+        run: echo "feature_branch_name=$(date +"%Y-%m-%d")-update-directory" >> $GITHUB_ENV
+          
       - name: Commit changes
+        env:
+           FEATURE_BRANCH_NAME: ${{ env.feature_branch_name }}
         run: |
           cd aws-testing
           ls
-          echo "feature_branch_name=$(date +"%Y-%m-%d")-update-directory" >> $GITHUB_ENV
           echo "${{ env.feature_branch_name }}"
-          git checkout -b $feature_branch_name
+          git checkout -b $FEATURE_BRANCH_NAME
           git add .
           git commit -m "Update directory with file from original repository"
-          git push --set-upstream origin $feature_branch_name
+          git push --set-upstream origin $FEATURE_BRANCH_NAME
           
       - name: Print feature branch name
         run: echo $feature_branch_name
