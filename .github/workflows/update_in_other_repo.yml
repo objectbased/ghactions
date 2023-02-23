@@ -28,7 +28,7 @@ jobs:
           git clone https://github.com/objectbased/aws-testing.git
           echo "${{ secrets.ACCESS_TOKEN }}" | git remote set-url origin https://$1@github.com/objectbased/aws-testing.git
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           
       - name: Copy file to other repository
         run: |
@@ -38,7 +38,7 @@ jobs:
           
       - name: Commit changes
         run: |
-          git remote set-url origin https://$GITHUB_TOKEN@github.com/objectbased/aws-testing.git
+          git remote set-url origin https://$GH_TOKEN@github.com/objectbased/aws-testing.git
           cd aws-testing
           ls
           feature_branch_name=$(date +"%Y-%m-%d")-update-directory
