@@ -19,11 +19,12 @@ jobs:
       
       - name: Set up python/git
         uses: actions/setup-python@v4
-        
+                 
       - name: Clone other repository
-        run: git clone https://github.com/objectbased/aws-testing.git
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git
           
       - name: Copy file to other repository
         run: |
@@ -34,6 +35,7 @@ jobs:
       - name: Commit changes
         run: |
           cd aws-testing
+          ls
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           feature_branch_name=$(date +"%Y-%m-%d")-update-directory
