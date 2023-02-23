@@ -26,7 +26,9 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           
       - name: Copy file to other repository
-        run: cp ghactions/syslog-ng/scl.conf aws-testing/
+        run: |
+          pwd
+          cp ghactions/syslog-ng/scl.conf aws-testing/
           
       - name: Commit changes
         run: |
