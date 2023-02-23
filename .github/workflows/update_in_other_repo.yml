@@ -50,5 +50,5 @@ jobs:
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/username/other-repository/pulls \
+            https://api.github.com/repos/objectbased/aws-testing/pulls \
             -d '{"title": "Update directory with file from original repository", "body": "This pull request updates the directory in the other repository with a file from the original repository.", "head": "'$(git rev-parse --abbrev-ref HEAD)'", "base": "main"}'
