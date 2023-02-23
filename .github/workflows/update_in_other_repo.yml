@@ -2,8 +2,8 @@ name: Update Other Repository
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: ['main']
+    paths: ['lookups/**']
 
 jobs:
   update-code-in-other-repo:
@@ -32,7 +32,7 @@ jobs:
           
       - name: Copy file to other repository
         run: |
-          cp syslog-ng/scl.conf aws-testing/
+          cp lookups/* aws-testing/lookups
           ls -la aws-testing/
           
       - name: Set branch name
