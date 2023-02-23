@@ -28,15 +28,12 @@ jobs:
           git clone https://github.com/objectbased/aws-testing.git
           cd aws-testing
           git remote set-url origin "https://objectbased:${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
-          git remote set-url --push origin "https://objectbased:${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git" 
-        env:
-          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          git remote set-url --push origin "https://objectbased:${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
           
       - name: Copy file to other repository
         run: |
-          pwd
-          ls -lR
           cp syslog-ng/scl.conf aws-testing/
+          ls -la aws-testing/
           
       - name: Commit changes
         run: |
@@ -47,13 +44,14 @@ jobs:
           git add .
           git commit -m "Update directory with file from original repository"
           git push --set-upstream origin $feature_branch_name
+          echo ::set-output name=branch::$(git rev-parse --abbrev-ref HEAD)
           
       - name: Open pull request
         uses: peter-evans/create-pull-request@v4
         with:
           title: Update directory with file from original repository
           body: This pull request updates the directory in the other repository with a file from the original repository.
-          branch: $feature_branch_name
+          branch: ${{ steps.commit.outputs.branch }}
           base: main
           token: ${{ secrets.ACCESS_TOKEN }}
           draft: false
