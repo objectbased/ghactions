@@ -22,6 +22,8 @@ jobs:
           
       - name: Clone other repository
         run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
           git clone https://github.com/objectbased/aws-testing.git
           cd aws-testing/
           git remote set-url origin "https://github.com/objectbased/aws-testing.git"
