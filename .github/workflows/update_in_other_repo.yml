@@ -28,6 +28,7 @@ jobs:
       - name: Copy file to other repository
         run: |
           pwd
+          ls -lR
           cp ghactions/syslog-ng/scl.conf aws-testing/
           
       - name: Commit changes
