@@ -44,14 +44,11 @@ jobs:
           git add .
           git commit -m "Update directory with file from original repository"
           git push --set-upstream origin $feature_branch_name
-          echo ::set-output name=branch::$feature_branch_name
           
       - name: Open pull request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Update directory with file from original repository
-          body: This pull request updates the directory in the other repository with a file from the original repository.
-          branch: ${{ steps.commit.outputs.branch }}
-          base: main
-          token: ${{ secrets.ACCESS_TOKEN }}
-          draft: false
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/username/other-repository/pulls \
+            -d '{"title": "Update directory with file from original repository", "body": "This pull request updates the directory in the other repository with a file from the original repository.", "head": "'$(git rev-parse --abbrev-ref HEAD)'", "base": "main"}'
