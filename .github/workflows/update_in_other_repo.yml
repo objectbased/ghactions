@@ -47,6 +47,7 @@ jobs:
           
       - name: Open pull request
         run: |
+          feature_branch_name=$(date +"%Y-%m-%d")-update-directory
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
             -H "Accept: application/vnd.github+json" \
