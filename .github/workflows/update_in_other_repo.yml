@@ -40,7 +40,7 @@ jobs:
           cd aws-testing
           ls
           echo "feature_branch_name=$(date +"%Y-%m-%d")-update-directory" >> $GITHUB_ENV
-          
+          echo "${{ env.feature_branch_name }}"
           git checkout -b $feature_branch_name
           git add .
           git commit -m "Update directory with file from original repository"
