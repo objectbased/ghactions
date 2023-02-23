@@ -38,6 +38,7 @@ jobs:
           
       - name: Commit changes
         run: |
+          git remote set-url origin https://$GITHUB_TOKEN@github.com/objectbased/aws-testing.git
           cd aws-testing
           ls
           feature_branch_name=$(date +"%Y-%m-%d")-update-directory
