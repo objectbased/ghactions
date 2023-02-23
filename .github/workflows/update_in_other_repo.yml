@@ -30,6 +30,7 @@ jobs:
       - name: Copy file to other repository
         run: |
           pwd
+          cd ..
           ls -lR
           cp syslog-ng/scl.conf aws-testing/
           
