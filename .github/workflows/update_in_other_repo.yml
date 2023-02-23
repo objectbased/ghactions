@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Set up python/git
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
           
       - name: Clone other repository
         run: |
