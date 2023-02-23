@@ -44,7 +44,7 @@ jobs:
           git checkout -b $feature_branch_name
           git add .
           git commit -m "Update directory with file from original repository"
-          git push origin $feature_branch_name
+          git push
           
       - name: Open pull request
         uses: peter-evans/create-pull-request@v4
