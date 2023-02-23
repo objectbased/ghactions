@@ -51,8 +51,7 @@ jobs:
           git push --set-upstream origin $FEATURE_BRANCH_NAME
           
       - name: Get changed files
-        id: changes
-        run: echo "::set-output name=files::$(git diff --name-only main..${{ env.feature_branch_name }})"
+        run: echo "diff=$(git diff --name-only main..${{ env.feature_branch_name }})"
           
       - name: Open pull request
         env:
