@@ -51,7 +51,9 @@ jobs:
           git push --set-upstream origin $FEATURE_BRANCH_NAME
           
       - name: Get changed files
-        run: echo "diff=$(git diff --name-only main..$FEATURE_BRANCH_NAME)" >> $GITHUB_ENV
+        run: |
+          cd aws-testing
+          echo "diff=$(git diff --name-only main..$FEATURE_BRANCH_NAME)" >> $GITHUB_ENV
           
       - name: Open pull request
         env:
