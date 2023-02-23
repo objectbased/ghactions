@@ -27,8 +27,8 @@ jobs:
           git config --global credential.helper store
           git clone https://github.com/objectbased/aws-testing.git
           cd aws-testing
-          git remote set-url origin "https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
-          git remote set-url --push origin "https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git" 
+          git remote set-url origin "https://objectbased:${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
+          git remote set-url --push origin "https://objectbased:${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git" 
         env:
           GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           
