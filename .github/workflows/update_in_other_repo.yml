@@ -26,6 +26,17 @@ jobs:
           git config --global user.name "GitHub Action"
           git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git
           
+      - name: Clone other repository
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git clone https://github.com/objectbased/aws-testing.git
+          cd aws-testing/
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git remote set-url origin "https://github.com/objectbased/aws-testing.git"
+          git remote set-url --push origin "https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
+          
       - name: Copy file to other repository
         run: |
           pwd
@@ -41,8 +52,6 @@ jobs:
           git add .
           git commit -m "Update directory with file from original repository"
           git push --set-upstream origin $feature_branch_name
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           
       - name: Open pull request
         uses: peter-evans/create-pull-request@v4
