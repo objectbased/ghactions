@@ -19,12 +19,6 @@ jobs:
       
       - name: Set up python/git
         uses: actions/setup-python@v4
-                 
-      - name: Clone other repository
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git clone https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git
           
       - name: Clone other repository
         run: |
