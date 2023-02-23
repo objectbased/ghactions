@@ -16,20 +16,16 @@ jobs:
     steps:
       - name: Git Clone repository
         uses: actions/checkout@v3
+        
+      - name: Git Clone other repository
+        uses: actions/checkout@v3
+        with:
+           repository: objectbased/aws-testing
+           ref: main
+           token: ${{ secrets.ACCESS_TOKEN }}
       
       - name: Set up python/git
         uses: actions/setup-python@v4
-          
-      - name: Clone other repository
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git clone https://github.com/objectbased/aws-testing.git
-          cd aws-testing/
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git remote set-url origin "https://github.com/objectbased/aws-testing.git"
-          git remote set-url --push origin "https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
           
       - name: Copy file to other repository
         run: |
