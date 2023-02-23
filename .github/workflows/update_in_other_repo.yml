@@ -51,11 +51,12 @@ jobs:
           git push --set-upstream origin $FEATURE_BRANCH_NAME
           
       - name: Get changed files
-        run: echo "diff=$(git diff --name-only main..${{ env.feature_branch_name }})"
+        run: echo "diff=$(git diff --name-only main..${{ env.feature_branch_name }})" >> $GITHUB_ENV
           
       - name: Open pull request
         env:
            FEATURE_BRANCH_NAME: ${{ env.feature_branch_name }}
+           DIFF: ${{ env.diff }}
         run: |
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
