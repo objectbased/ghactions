@@ -26,7 +26,7 @@ jobs:
           git config --global user.name "GitHub Action"
           git clone https://github.com/objectbased/aws-testing.git
           cd aws-testing/
-          git remote set-url origin "https://github.com/objectbased/aws-testing.git"
+          git remote set-url origin https://github.com/objectbased/aws-testing.git
           git remote set-url --push origin "https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
           git checkout main
           
