@@ -26,7 +26,9 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global credential.helper store
           git clone https://github.com/objectbased/aws-testing.git
-          echo "${{ secrets.ACCESS_TOKEN }}" | git remote set-url origin https://$1@github.com/objectbased/aws-testing.git
+          cd aws-testing
+          git remote set-url origin "https://github.com/objectbased/aws-testing.git"
+          git remote set-url --push origin "https://${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git" 
         env:
           GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           
@@ -38,7 +40,6 @@ jobs:
           
       - name: Commit changes
         run: |
-          git remote set-url origin https://$GH_TOKEN@github.com/objectbased/aws-testing.git
           cd aws-testing
           ls
           feature_branch_name=$(date +"%Y-%m-%d")-update-directory
