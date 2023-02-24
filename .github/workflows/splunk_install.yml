@@ -1,0 +1,25 @@
+name: Update Other Repository
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+
+jobs:
+  splunk-install-tester:
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+      
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v3
+        
+      - name: Install Splunk Universal Forwarder
+        run: |
+          wget -O splunkforwarder-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=8.2.2.1&product=universalforwarder&filename=splunkforwarder-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz&wget=true'
+          tar xzf splunkforwarder-8.2.2.1-ae6821b7c64b-Linux-x86_64.tgz
+          sudo ./splunkforwarder/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd changeme
+        env:
+          SPLUNK_HOME: /opt/splunkforwarder
