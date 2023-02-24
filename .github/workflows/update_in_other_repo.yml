@@ -33,7 +33,7 @@ jobs:
           cp Metrics/*.csv aws-testing/lookups
           
       - name: Set branch name
-        run: echo "feature_branch_name=$(date +"%Y-%m-%d")-${{ github.sha }}" >> $GITHUB_ENV
+        run: echo "feature_branch_name=$(date +"%Y-%m-%d-%H:%M")-${{ github.sha }}" >> $GITHUB_ENV
           
       - name: Commit changes
         env:
