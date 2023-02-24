@@ -14,11 +14,8 @@ jobs:
       contents: read
       
     steps:
-      - name: Git Clone repository
+      - name: Git Clone current repository
         uses: actions/checkout@v3
-      
-      - name: Set up python/git
-        uses: actions/setup-python@v2
           
       - name: Clone other repository
         run: |
