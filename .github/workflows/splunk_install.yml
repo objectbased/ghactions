@@ -31,6 +31,6 @@ jobs:
           
       - name: Validate Splunk Universal Forwarder Configurations with btool check
         run: |
-          sudo ./splunkforwarder/bin/splunk btool check --debug
+          sudo ./splunkforwarder/bin/splunk btool check
         env:
           SPLUNK_HOME: /opt/splunkforwarder
