@@ -26,8 +26,8 @@ jobs:
           
       - name: Copy Apps to Splunk Universal Forwarder
         run: |
-          sudo cp -r apps/* $SPLUNK_HOME/etc/apps/
-          ls /opt/splunkforwarder/etc/apps
+          sudo cp -r apps/* splunkforwarder/etc/apps/
+          ls splunkforwarder/etc/apps/
           
       - name: Validate Splunk Universal Forwarder Configurations with btool check
         run: |
