@@ -21,16 +21,11 @@ jobs:
           wget -O splunkforwarder-8.2.5-77015bc7a462-Linux-x86_64.tgz "https://download.splunk.com/products/universalforwarder/releases/8.2.5/linux/splunkforwarder-8.2.5-77015bc7a462-Linux-x86_64.tgz"
           tar -xzf splunkforwarder-8.2.5-77015bc7a462-Linux-x86_64.tgz
           sudo ./splunkforwarder/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd changeme
-        env:
-          SPLUNK_HOME: /opt/splunkforwarder
           
       - name: Copy Apps to Splunk Universal Forwarder
         run: |
           sudo cp -r apps/* splunkforwarder/etc/apps/
-          ls splunkforwarder/etc/apps/
           
       - name: Validate Splunk Universal Forwarder Configurations with btool check
         run: |
           sudo ./splunkforwarder/bin/splunk btool check
-        env:
-          SPLUNK_HOME: /opt/splunkforwarder
