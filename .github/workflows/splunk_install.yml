@@ -1,4 +1,4 @@
-name: Update Other Repository
+name: Splunk Config Validator
 on:
   workflow_dispatch:
   push:
