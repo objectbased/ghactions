@@ -30,7 +30,7 @@ jobs:
           
       - name: Copy file to other repository
         run: |
-          cp Metrics/*.csv aws-testing/lookups
+          cp Metrics/*.csv aws-testing/lookups/
           
       - name: Set branch name
         run: echo "feature_branch_name=$(date +"%Y-%m-%d-%H-%M")-${{ github.sha }}" >> $GITHUB_ENV
