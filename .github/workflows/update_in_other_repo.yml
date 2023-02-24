@@ -48,11 +48,10 @@ jobs:
       - name: Open pull request
         env:
            FEATURE_BRANCH_NAME: ${{ env.feature_branch_name }}
-           TEST: "https://github.com/objectbased/ghactions/commit/${{ github.sha }}"
         run: |
           curl -X POST \
             -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
             -H "Accept: application/vnd.github+json" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/objectbased/aws-testing/pulls \
-            -d '{"title": "Update directory with file from original repository", "body": "Workflow triggered to update latest commit in repo-abc-123 with lookup in repo-zfg-456\n\nCheck commit here: $TEST", "head": "'$FEATURE_BRANCH_NAME'", "base": "main"}'
+            -d '{"title": "Update Lookups from Sec Team repo", "body": "Workflow triggered to update latest commit in repo-abc-123 with lookup in repo-zfg-456\n\nCheck commit here: https://github.com/objectbased/ghactions/commit/${{ github.sha }}", "head": "'$FEATURE_BRANCH_NAME'", "base": "main"}'
