@@ -1,3 +1,3 @@
 import hvac
 
-print("testing")
+print("::set-output name=value::test123")
