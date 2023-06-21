@@ -26,7 +26,7 @@ jobs:
     - name: run script
       id: script-output
       run: |
-        python3 ${{github.repository}}/scripts/run-python.py
+        python3 ghactions/scripts/run-python.py
         
     - name: output
       run: |
