@@ -1,0 +1,28 @@
+name: Send workflow output to Splunk HEC
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+
+jobs:
+  python-test-run:
+    runs-on: ubuntu-latest
+    environment: test
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup python3
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.7'
+        
+    - name: install deps
+      run: |
+        pip3 install hvac
+      
+    - name: echo
+      run: |
+        echo "${{ toJson(steps) }}"
