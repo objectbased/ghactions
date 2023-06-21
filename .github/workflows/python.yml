@@ -26,10 +26,9 @@ jobs:
     - name: run script
       id: script-output
       run: |
-        ls
         python3 scripts/run-python.py
         
     - name: output
       run: |
-        echo ${{ steps.script-output.outputs.value }}
+        echo "${{ steps.script-output.outputs.value }}"
        
