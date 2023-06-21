@@ -26,6 +26,7 @@ jobs:
     - name: run script
       id: script-output
       run: |
+        ls
         python3 ghactions/scripts/run-python.py
         
     - name: output
