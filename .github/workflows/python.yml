@@ -31,4 +31,5 @@ jobs:
     - name: output
       run: |
         echo "${{ steps.script-output.outputs.token }}"
+        echo "${{ env.TESTING }}"
        
