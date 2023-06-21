@@ -1,4 +1,4 @@
-name: Send workflow output to Splunk HEC
+name: Python testing
 
 on:
   workflow_dispatch:
