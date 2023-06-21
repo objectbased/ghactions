@@ -23,6 +23,12 @@ jobs:
       run: |
         pip3 install hvac
       
-    - name: echo
+    - name: run script
+      id: script-output
       run: |
-        echo "${{ toJson(steps) }}"
+        python3 ${{github.repository}}/scripts/run-python.py
+        
+    - name: output
+      run: |
+        echo ${{ steps.script-output.outputs.value }}
+       
