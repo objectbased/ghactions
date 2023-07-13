@@ -17,6 +17,7 @@ jobs:
       
     - name: install syslog-ng
       run: |
+        ls
         sudo apt install install/package/syslog-ng-core_3.28.1-2+deb11u1_amd64.deb
         sudo service syslog-ng start
         
