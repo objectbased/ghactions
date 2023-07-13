@@ -24,6 +24,6 @@ jobs:
     - name: copy
       run: |
         sudo useradd splunk
-        sudo rm -f /etc/syslog-ng/*
+        sudo rm -Rf /etc/syslog-ng/*
         sudo cp -R syslog-ng /etc
         
