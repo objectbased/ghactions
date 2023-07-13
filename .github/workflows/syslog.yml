@@ -1,0 +1,28 @@
+name: syslog-ng
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: ['main']
+    paths: ['syslog-ng/**']
+
+jobs:
+  syslog-ng-syntax-check:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: clone
+      uses: actions/checkout@v3
+      
+    - name: install syslog-ng
+      run: |
+        sudo apt install install/package/syslog-ng-core_3.28.1-2+deb11u1_amd64.deb
+        sudo service syslog-ng start
+        
+    - name: copy
+      run: |
+        sudo useradd splunk
+        sudo rm -f /etc/syslog-ng/*
+        sudo cp -R syslog-ng /etc
+        
