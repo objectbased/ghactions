@@ -26,4 +26,9 @@ jobs:
         sudo useradd splunk
         sudo rm -Rf /etc/syslog-ng/*
         sudo cp -R syslog-ng /etc
+        ls -la /etc/syslog-ng
+        
+    - name: check
+      run: |
+        sudo syslog-ng -s
         
