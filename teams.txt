@@ -1,19 +1,28 @@
 {
-    'type': 'message',
-    'attachments': [
-        {
-            'contentType': 'application/vnd.microsoft.card.adaptive',
-            'content': {
-                'type': 'AdaptiveCard',
-                'version': '1.3',
-                'body': [
-                    {
-                        'type': 'TextBlock',
-                        'text': 'Original Field Value',
-                        'id': field_to_update
-                    }
-                ]
-            }
-        }
-    ]
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "My Adaptive Card",
+      "size": "Large",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Alert Name:",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "New Value",
+      "id": "alert_name"
+    },
+    {
+      "type": "Input.Text",
+      "id": "id",
+      "isHidden": true
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
 }
