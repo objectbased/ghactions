@@ -1,0 +1,37 @@
+name: Splunk Config Validator
+on:
+  workflow_dispatch:
+  push:
+    branches: ['main']
+
+jobs:
+  splunk-install-tester:
+    runs-on: ubuntu-latest
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+      
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v3
+        
+      - name: Install Splunk Enterprise
+        run: |
+          wget -O splunk-8.2.10-417e74d5c950-Linux-x86_64.tgz "https://download.splunk.com/products/splunk/releases/8.2.10/linux/splunk-8.2.10-417e74d5c950-Linux-x86_64.tgz"
+          tar -xzf splunk-*.tgz
+          
+      - name: Disable webserver in runner
+        run: |
+          echo "[settings]" >> /opt/splunk/etc/system/local/web.conf
+          echo "startwebserver = 0" >> /opt/splunk/etc/system/local/web.conf
+          chown splunk:splunk /opt/splunk/etc/system/local/web.conf
+             
+      - name: Copy Apps to Splunk Enterprise
+        run: |
+          sudo cp -r apps/* splunk/etc/apps/
+          sudo ./splunk/bin/splunk start --accept-license --answer-yes --no-prompt --seed-passwd changeme
+          
+      - name: Validate Splunk Enterprise Configurations with btool check
+        run: |
+          sudo ./splunk/bin/splunk btool check
