@@ -1,4 +1,4 @@
-name: Splunk Config Validator
+name: Splunk Config Validator Enterprise
 on:
   workflow_dispatch:
   push:
