@@ -25,7 +25,6 @@ jobs:
         run: |
           echo "[settings]" >> splunk/etc/system/local/web.conf
           echo "startwebserver = 0" >> splunk/etc/system/local/web.conf
-          chown splunk:splunk splunk/etc/system/local/web.conf
              
       - name: Copy Apps to Splunk Enterprise
         run: |
