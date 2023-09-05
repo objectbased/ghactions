@@ -17,9 +17,10 @@ jobs:
       - name: Git Clone current repository
         uses: actions/checkout@v3
         
-      - name: set vars
+      - name: get message
+        id: message
         run: |
-          echo "pr_details=${{ github.event.pull_request.merge_commit_message }}" >> $GITHUB_ENV
+          echo "message=$(git show -s --format=%s)" >> $GITHUB_ENV
           
       - name: Clone other repository
         run: |
@@ -40,12 +41,11 @@ jobs:
       - name: Commit changes
         env:
            FEATURE_BRANCH_NAME: ${{ env.feature_branch_name }}
-           PR: ${{ env.pr_details }}
         run: |
           cd aws-testing
           git checkout -b $FEATURE_BRANCH_NAME
           git add .
-          git commit -m "$PR"
+          git commit -m "${{ steps.message.outputs.message }}"
           git push --set-upstream origin $FEATURE_BRANCH_NAME
           
       - name: Open pull request
