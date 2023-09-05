@@ -18,9 +18,9 @@ jobs:
         uses: actions/checkout@v3
         
       - name: get message
-        id: message
+        id: message_id
         run: |
-          echo "message=$(git show -s --format=%s)" >> $GITHUB_ENV
+          echo "message=$(git show -s --format=%s)" >> "$GITHUB_OUTPUT"
           
       - name: Clone other repository
         run: |
@@ -45,7 +45,7 @@ jobs:
           cd aws-testing
           git checkout -b $FEATURE_BRANCH_NAME
           git add .
-          git commit -m "${{ steps.message.outputs.message }}"
+          git commit -m "${{ steps.message_id.outputs.message }}"
           git push --set-upstream origin $FEATURE_BRANCH_NAME
           
       - name: Open pull request
