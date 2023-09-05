@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: ['main']
-    paths: ['Metrics/**']
+    paths: ['Splunk/Detections/sec/local/savedsearches.conf']
 
 jobs:
   update-code-in-other-repo:
@@ -16,30 +16,34 @@ jobs:
     steps:
       - name: Git Clone current repository
         uses: actions/checkout@v3
+        
+      - name: set vars
+        run: |
+          echo "pr_details=$(${{ github.event.pull_request.body }})" >> $GITHUB_ENV
           
       - name: Clone other repository
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
           git clone https://github.com/objectbased/aws-testing.git
           cd aws-testing
           git remote set-url origin "https://objectbased:${{ secrets.ACCESS_TOKEN }}@github.com/objectbased/aws-testing.git"
           
       - name: Copy file to other repository
         run: |
-          cp Metrics/*.csv aws-testing/lookups/
+          rsync -av --delete-after Splunk/Detections/sec/local/savedsearches.conf aws-testing/shcluster/apps/sec/local/savedsearches.conf
           
-      - name: Set branch name
-        run: echo "feature_branch_name=$(date +"%Y-%m-%d-%H-%M")-${{ github.sha }}" >> $GITHUB_ENV
+      - name: Set branch name and vars
+        run: |
+          echo "feature_branch_name=$sec-(date +"%Y-%m-%d-%H-%M")-${{ github.sha }}" >> $GITHUB_ENV
           
       - name: Commit changes
         env:
            FEATURE_BRANCH_NAME: ${{ env.feature_branch_name }}
+           PR: ${{ env.pr_details }}
         run: |
           cd aws-testing
           git checkout -b $FEATURE_BRANCH_NAME
           git add .
-          git commit -m "Update directory with new lookups"
+          git commit -m "$PR"
           git push --set-upstream origin $FEATURE_BRANCH_NAME
           
       - name: Open pull request
