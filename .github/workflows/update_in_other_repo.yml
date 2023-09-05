@@ -19,7 +19,7 @@ jobs:
         
       - name: set vars
         run: |
-          echo "pr_details=$(${{ github.event.pull_request.body }})" >> $GITHUB_ENV
+          echo "pr_details=$(${{ github.event.pull_request.merge_commit_message }})" >> $GITHUB_ENV
           
       - name: Clone other repository
         run: |
