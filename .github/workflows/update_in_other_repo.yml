@@ -20,7 +20,7 @@ jobs:
       - name: get message
         id: message_id
         run: |
-          echo "message=$(git show -s --format=%s)" >> "$GITHUB_OUTPUT"
+          echo "message=$(git show ${{ github.sha }})" >> "$GITHUB_OUTPUT"
           
       - name: Clone other repository
         run: |
