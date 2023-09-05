@@ -33,7 +33,7 @@ jobs:
           
       - name: Set branch name and vars
         run: |
-          echo "feature_branch_name=$sec-(date +"%Y-%m-%d-%H-%M")-${{ github.sha }}" >> $GITHUB_ENV
+          echo "feature_branch_name=cyber-$(date +"%Y-%m-%d-%H-%M")-${{ github.sha }}" >> $GITHUB_ENV
           
       - name: Commit changes
         env:
