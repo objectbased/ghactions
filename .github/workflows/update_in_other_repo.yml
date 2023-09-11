@@ -19,7 +19,8 @@ jobs:
         
       - name: get message
         run: |
-          echo "message=$(git show ${{ github.sha }} --format=%b)" >> $GITHUB_ENV
+          message=$(git show ${{ github.sha }} --format=%b)
+          echo "message=$message" >> $GITHUB_ENV
           
       - name: Clone other repository
         run: |
