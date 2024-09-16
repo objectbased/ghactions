@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches: ['main']
-    path: ['vector/configs/**']
+    paths: ['vector/configs/**']
     
 jobs:
   vector-config-check:
