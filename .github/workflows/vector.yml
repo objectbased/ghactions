@@ -14,12 +14,6 @@ jobs:
     steps:
     - name: Git clone
     uses: actions/checkout@v4
-<<<<<<< Updated upstream
-    with:
-      sparse-checkout: |
-        vector/configs
-=======
->>>>>>> Stashed changes
         
     - name: install vector
     run: |
