@@ -24,9 +24,9 @@ jobs:
       
     - name: copy configs
       run: |
-        mkdir /etc/vector/configs
-        sudo cp -r vector/configs/* /etc/vector/configs
+        mkdir /usr/bin/vector/configs
+        sudo cp -r vector/configs/* /usr/bin/vector/configs
       
     - name: validate
       run: |
-        vector validate /etc/vector/configs/*.yaml
+        vector validate /usr/bin/vector/configs/*.yaml
