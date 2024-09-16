@@ -21,6 +21,7 @@ jobs:
         sudo apt-get install vector
         ls
         which vector
+        ls /etc/vector
       
     - name: copy configs
       run: |
