@@ -19,6 +19,7 @@ jobs:
       run: |
         bash -c "$(curl -L https://setup.vector.dev)"
         sudo apt-get install vector
+        ls
       
     - name: copy configs
       run: |
