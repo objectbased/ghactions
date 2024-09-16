@@ -8,7 +8,7 @@ on:
 jobs:
   vector-config-check:
     runs-on: ubuntu-latest
-    environment: prod
+    environment: test
     permissions:
       id-token: write
       contents: read
