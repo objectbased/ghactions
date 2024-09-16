@@ -1,9 +1,9 @@
 name: vector syntax check
 on:
   workflow_dispatch:
-  pull_request:
-    branches: ['main']
-    paths: ['vector/**']
+  push:
+    #branches: ['main']
+    #paths: ['vector/**']
     
 jobs:
   vector-config-check:
