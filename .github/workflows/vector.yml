@@ -14,6 +14,9 @@ jobs:
     steps:
     - name: Git clone
       uses: actions/checkout@v4
+      with:
+        sparse-checkout: |
+          vector/configs
         
     - name: install vector
       run: |
