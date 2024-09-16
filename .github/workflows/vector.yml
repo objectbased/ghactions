@@ -13,18 +13,18 @@ jobs:
       contents: read
     steps:
     - name: Git clone
-    uses: actions/checkout@v4
+      uses: actions/checkout@v4
         
     - name: install vector
-    run: |
-      bash -c "$(curl -L https://setup.vector.dev)"
-      sudo apt-get install vector
+      run: |
+        bash -c "$(curl -L https://setup.vector.dev)"
+        sudo apt-get install vector
       
     - name: copy configs
-    run: |
-      mkdir /etc/vector/configs
-      sudo cp -r vector/configs/* /etc/vector/configs
+      run: |
+        mkdir /etc/vector/configs
+        sudo cp -r vector/configs/* /etc/vector/configs
       
     - name: validate
-    run: |
-      vector validate /etc/vector/configs/*.yaml
+      run: |
+        vector validate /etc/vector/configs/*.yaml
