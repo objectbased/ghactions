@@ -30,5 +30,6 @@ jobs:
       
     - name: validate
       run: |
-        export DD_API_KEY="placeholder"
+        echo 'DD_API_KEY="value"' | sudo tee -a /etc/environment
+        source /etc/environment
         sudo vector validate /etc/vector/configs/*.yaml
