@@ -30,5 +30,5 @@ jobs:
       
     - name: validate
       run: |
-        sudo export DD_API_KEY="test"
+        export DD_API_KEY="placeholder"
         sudo vector validate /etc/vector/configs/*.yaml
