@@ -32,4 +32,4 @@ jobs:
       run: |
         echo 'DD_API_KEY="value"' | sudo tee -a /etc/environment
         source /etc/environment
-        sudo vector validate /etc/vector/configs/*.yaml
+        sudo vector validate --skip-healthchecks /etc/vector/configs/*.yaml
