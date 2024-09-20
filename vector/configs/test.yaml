@@ -1,1 +1,13 @@
-test
+sources:
+  metrics:
+    type: internal_metrics
+    namespace: vector
+    scrape_interval_secs: 1
+    
+sinks:
+  dd:
+    type: datadog_metrics
+    inputs:
+    - metrics
+    default_api_key: ${DD_API_KEY}
+    default_namespace: test

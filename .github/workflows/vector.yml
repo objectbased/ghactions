@@ -22,9 +22,6 @@ jobs:
       run: |
         bash -c "$(curl -L https://setup.vector.dev)"
         sudo apt-get install vector
-        ls
-        which vector
-        ls /etc/vector
       
     - name: copy configs
       run: |
@@ -33,4 +30,5 @@ jobs:
       
     - name: validate
       run: |
+        export DD_API_KEY="test"
         vector validate /etc/vector/configs/*.yaml
